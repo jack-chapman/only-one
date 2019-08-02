@@ -2,26 +2,22 @@
   <div class="order-container">
     <h3>Customer Details</h3>
     <div class="key-val">
-      <p class="key">Order No.</p>
-      <p class="val">{{orderNumber}}</p>
-    </div>
-    <div class="key-val">
       <p class="key">Name</p>
-      <p class="val">{{order.name}}</p>
+      <p class="val">{{order.name || 'N/A'}}</p>
     </div>
     <div class="key-val">
       <p class="key">Address</p>
-      <p class="val">{{order.address}}</p>
+      <p class="val">{{order.address || 'N/A'}}</p>
     </div>
     <hr>
     <h3>Order Details</h3>
     <div class="key-val">
       <p class="key">Model</p>
-      <p class="val">{{order.model}}</p>
+      <p class="val">{{order.model || 'N/A'}}</p>
     </div>
     <div class="key-val">
       <p class="key">Colour</p>
-      <p class="val">{{order.colour}}</p>
+      <p class="val">{{order.colour || 'N/A'}}</p>
     </div>
     <div class="key-val">
       <p class="key">Number of wheels</p>
@@ -34,17 +30,9 @@
 import Vue from 'vue'
 import { Order } from '../models';
 export default Vue.extend({
-  data() {
-    return {
-      orderNumber: ''
-    }
-  },
-  created() {
-    this.orderNumber = [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join('')
-  },
   computed: {
     order(): Order {
-      return this.$store.state.currentOrder;
+      return this.$store.state.ordersList[0];
     }
   }
 })

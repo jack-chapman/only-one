@@ -46,15 +46,16 @@ export default Vue.extend({
     'one-timer': Timer
   },
   created() {
-    const order: Order = createOrder()
-    this.$store.commit('setCurrentOrder', order)
+    this.$store.dispatch('generateNewOrder');
+    this.$store.dispatch('generateNewOrder');
+    this.$store.dispatch('generateNewOrder');
   }
 });
 </script>
 
 <style>
 * {
-  border: 1px yellow solid;
+  /* border: 1px yellow solid; */
 }
 body {
   margin: 0;
