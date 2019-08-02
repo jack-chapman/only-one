@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {Order} from './models';
+import {createOrder} from './utils';
 
 Vue.use(Vuex)
 
@@ -40,6 +41,11 @@ export default new Vuex.Store({
     resetGame({commit}) {
       commit('setGameOver', false);
       commit('setIsPlaying', false);
+    },
+    generateNewOrder({commit, state}) {
+      const newOrder: Order = createOrder();
+      const list: Order[] = [...state.ordersList, newOrder];
+      commit('setOrdersList', list)
     }
   }
 })

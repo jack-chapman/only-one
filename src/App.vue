@@ -33,6 +33,8 @@ import Inputs from './components/Inputs.vue';
 import OrderDetails from './components/OrderDetails.vue';
 import OrdersList from './components/OrdersList.vue';
 import Timer from './components/Timer.vue';
+import { Order } from './models';
+import {createOrder} from './utils';
 
 export default Vue.extend({
   name: 'app',
@@ -42,6 +44,10 @@ export default Vue.extend({
     'one-order-details': OrderDetails,
     'one-orders-list': OrdersList,
     'one-timer': Timer
+  },
+  created() {
+    const order: Order = createOrder()
+    this.$store.commit('setCurrentOrder', order)
   }
 });
 </script>

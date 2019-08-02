@@ -27,14 +27,14 @@ export default Vue.extend({
     }
   },
   watch: {
-    gameInProgress(playing) {
+    gameInProgress(playing: boolean): void {
       if (playing) {
         this.startCounter();
       } else {
         this.stopCounter();
       }
     },
-    remainingTime(secondsRemaining) {
+    remainingTime(secondsRemaining: number): void {
       if (secondsRemaining === 0) {
         this.stopCounter();
         this.$store.dispatch('endGame');
