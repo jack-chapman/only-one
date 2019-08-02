@@ -9,7 +9,8 @@ export default new Vuex.Store({
     ordersList: Array<Order>(),
     currentOrder: <Order>{},
     isPlaying: false,
-    gameOver: false
+    gameOver: false,
+    score: 0
   },
   mutations: {
     setIsPlaying(state, payload: boolean) {
@@ -23,9 +24,22 @@ export default new Vuex.Store({
     },
     setCurrentOrder(state, payload: Order) {
       state.currentOrder = payload;
+    },
+    setScore(state, payload: number) {
+      state.score = payload;
     }
   },
   actions: {
-
+    endGame({commit}) {
+      commit('setGameOver', true);
+    },
+    startGame({commit}) {
+      commit('setGameOver', false);
+      commit('setIsPlaying', true);
+    },
+    resetGame({commit}) {
+      commit('setGameOver', false);
+      commit('setIsPlaying', false);
+    }
   }
 })

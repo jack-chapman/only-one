@@ -1,5 +1,5 @@
 <template>
-  <p>heading</p>
+  <h1 class="title">Only One Wheel!</h1>
 </template>
 
 <script lang="ts">
@@ -10,5 +10,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-
+.title {
+  width: 100%;
+  text-align: center;
+}
 </style>
