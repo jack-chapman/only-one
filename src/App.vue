@@ -3,23 +3,23 @@
     <div class="container">
       <div class="left-section">
         <div class="heading-container">
-          <!-- heading here -->
+          <one-heading/>
         </div>
         <div class="body-left-container">
           <div class="orders-list-container">
-            <!-- orders list here -->
+            <one-orders-list/>
           </div>
           <div class="order-details-container">
-            <!-- order details here -->
+            <one-order-details/>
           </div>
         </div>
       </div>
       <div class="right-section">
         <div class="timer-container">
-          <!-- timer here -->
+          <one-timer/>
         </div>
         <div class="input-container">
-          <!-- inputs here -->
+          <one-inputs/>
         </div>
       </div>
     </div>
@@ -28,10 +28,20 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Heading from './components/Heading.vue';
+import Inputs from './components/Inputs.vue';
+import OrderDetails from './components/OrderDetails.vue';
+import OrdersList from './components/OrdersList.vue';
+import Timer from './components/Timer.vue';
 
 export default Vue.extend({
   name: 'app',
   components: {
+    'one-heading': Heading,
+    'one-inputs': Inputs,
+    'one-order-details': OrderDetails,
+    'one-orders-list': OrdersList,
+    'one-timer': Timer
   }
 });
 </script>
@@ -49,6 +59,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: sans-serif;
 }
 </style>
 
