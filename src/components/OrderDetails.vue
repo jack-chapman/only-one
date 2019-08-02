@@ -32,7 +32,7 @@ import { Order } from '../models';
 export default Vue.extend({
   computed: {
     order(): Order {
-      return this.$store.state.ordersList[0];
+      return this.$store.state.ordersList[0] || {};
     }
   }
 })

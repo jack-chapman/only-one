@@ -46,6 +46,11 @@ export default new Vuex.Store({
       const newOrder: Order = createOrder();
       const list: Order[] = [...state.ordersList, newOrder];
       commit('setOrdersList', list)
+    },
+    nextOrder({commit, state}) {
+      const list = state.ordersList.slice(1);
+      const newOrder: Order = createOrder();
+      commit('setOrdersList', [...list, newOrder]);
     }
   }
 })
