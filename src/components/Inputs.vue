@@ -1,7 +1,7 @@
 <template>
   <div class="inputs-container">
     <label for="model">Model</label>
-    <input type="text" name="model" id="model" tabindex="1" v-model="model" />
+    <input type="text" name="model" id="model" tabindex="1" v-model="model" ref="first-input"/>
     <label for="colour">Colour</label>
     <input type="text" name="colour" id="colour" tabindex="2" v-model="colour" />
     <label for="wheels">Number of wheels</label>
@@ -36,6 +36,8 @@ export default Vue.extend({
       this.model = '';
       this.colour = '';
       this.wheels = '';
+      const el: HTMLInputElement = <HTMLInputElement>this.$refs['first-input'];
+      el.focus();
     }
   }
 });
