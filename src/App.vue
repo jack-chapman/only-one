@@ -23,6 +23,8 @@
         </div>
       </div>
     </div>
+    <div class="modal" v-if="showMenu"></div>
+    <one-menu v-if="showMenu" class="menu"/>
   </div>
 </template>
 
@@ -33,6 +35,7 @@ import Inputs from './components/Inputs.vue';
 import OrderDetails from './components/OrderDetails.vue';
 import OrdersList from './components/OrdersList.vue';
 import Timer from './components/Timer.vue';
+import Menu from './components/Menu.vue';
 import { Order } from './models';
 import {createOrder} from './utils';
 
@@ -43,12 +46,18 @@ export default Vue.extend({
     'one-inputs': Inputs,
     'one-order-details': OrderDetails,
     'one-orders-list': OrdersList,
-    'one-timer': Timer
+    'one-timer': Timer,
+    'one-menu': Menu
   },
   created() {
     this.$store.dispatch('generateNewOrder');
     this.$store.dispatch('generateNewOrder');
     this.$store.dispatch('generateNewOrder');
+  },
+  computed: {
+    showMenu(): boolean {
+      return this.$store.state.showMenu;
+    }
   }
 });
 </script>
@@ -63,10 +72,8 @@ body {
 #app {
   height: 100%;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-family: sans-serif;
+  position: relative;
 }
 </style>
 
@@ -78,6 +85,14 @@ body {
   height: 605px;
   width: 1090px;
   justify-content: space-between;
+}
+.modal {
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0.5;
+  position: absolute;
+  top:0;
 }
 
 .left-section {
@@ -117,5 +132,11 @@ body {
 
 .input-container {
   height: 90%;
+}
+
+.menu {
+  position: absolute;
+  top: 150px;
+  left: 500px;;
 }
 </style>

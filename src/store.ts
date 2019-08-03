@@ -12,7 +12,8 @@ export default new Vuex.Store({
     gameOver: false,
     score: 0,
     possibleScore: 0,
-    orderIndex: 0
+    orderIndex: 0,
+    showMenu: false
   },
   getters: {
     currentOrder(state) {
@@ -37,6 +38,9 @@ export default new Vuex.Store({
     },
     incrementOrderIndex(state) {
       state.orderIndex = state.orderIndex + 1;
+    },
+    setShowMenu(state, payload: boolean) {
+      state.showMenu = payload;
     }
   },
   actions: {
