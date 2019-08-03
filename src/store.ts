@@ -73,9 +73,6 @@ export default new Vuex.Store({
       const colourCorrect = payload.colour === getters.currentOrder.colour;
       const wheelsCorrect = payload.wheels === 'Only One';
       const orderCorrect = modelCorrect && colourCorrect && wheelsCorrect;
-      console.log('model', payload.model, getters.currentOrder.model);
-      console.log('colour', payload.colour, getters.currentOrder.colour);
-      console.log('model', modelCorrect, 'colour', colourCorrect, 'wheels', wheelsCorrect);
       if (orderCorrect) {
         commit('setScore', state.score + 1);
       }
