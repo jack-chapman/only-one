@@ -4,4 +4,5 @@ export interface Order {
   colour: string;
   address: string;
   wheelsAmount: 1;
+  id: number;
 }

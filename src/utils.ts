@@ -78,12 +78,13 @@ function generateName(): string {
   return `${randomInArray(firstNames)} ${randomInArray(lastNames)}`
 }
 
-export function createOrder(): Order {
+export function createOrder(index: number): Order {
   return {
     name: generateName(),
     address: randomInArray(cities),
     wheelsAmount: 1,
     model: randomInArray(models),
-    colour: randomInArray(colours)
+    colour: randomInArray(colours),
+    id: index + 1
   }
 }

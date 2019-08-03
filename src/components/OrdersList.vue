@@ -1,12 +1,12 @@
 <template>
   <div class="list-container">
     <h3>Orders</h3>
-    <ul class="orders-list">
-      <li class="order-item" :class="{'first': index === 0}" v-for="(order, index) in ordersArray" :key="index">
-        <p>Order: {{index + 1}}</p>
+    <transition-group name="list-complete" tag="ul">
+      <li class="order-item list-complete-item" :class="{'first': index === 0}" v-for="(order, index) in ordersArray" :key="order.id">
+        <p>Order: {{order.id}}</p>
         <p>For: {{order.name}}</p>
       </li>
-    </ul>
+    </transition-group>
   </div>
 </template>
 
@@ -34,9 +34,27 @@ export default Vue.extend({
 
 .order-item {
   border-bottom: 1px grey solid;
+  width: 274px;
 }
 
 .first {
   background-color: lightblue;
 }
 </style>
+
+<style>
+.list-complete-item {
+  transition: all 0.2s;
+  display: block;
+  margin-right: 10px;
+}
+.list-complete-enter, .list-complete-leave-to
+/* .list-complete-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateX(-274px);
+}
+.list-complete-leave-active {
+  position: absolute;
+}
+</style>
+

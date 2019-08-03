@@ -11,7 +11,8 @@ export default new Vuex.Store({
     currentOrder: <Order>{},
     isPlaying: false,
     gameOver: false,
-    score: 0
+    score: 0,
+    orderIndex: 0
   },
   mutations: {
     setIsPlaying(state, payload: boolean) {
@@ -28,6 +29,9 @@ export default new Vuex.Store({
     },
     setScore(state, payload: number) {
       state.score = payload;
+    },
+    incrementOrderIndex(state) {
+      state.orderIndex = state.orderIndex + 1;
     }
   },
   actions: {
@@ -43,13 +47,15 @@ export default new Vuex.Store({
       commit('setIsPlaying', false);
     },
     generateNewOrder({commit, state}) {
-      const newOrder: Order = createOrder();
+      const newOrder: Order = createOrder(state.orderIndex);
+      commit('incrementOrderIndex');
       const list: Order[] = [...state.ordersList, newOrder];
       commit('setOrdersList', list)
     },
     nextOrder({commit, state}) {
       const list = state.ordersList.slice(1);
-      const newOrder: Order = createOrder();
+      const newOrder: Order = createOrder(state.orderIndex);
+      commit('incrementOrderIndex');
       commit('setOrdersList', [...list, newOrder]);
     }
   }
