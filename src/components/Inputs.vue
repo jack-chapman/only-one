@@ -36,6 +36,9 @@ export default Vue.extend({
         (this.$refs['second-input'] as HTMLInputElement).blur();
         (this.$refs['third-input'] as HTMLInputElement).blur();
         (this.$refs['ship-it-button'] as HTMLInputElement).blur();
+        this.model = '';
+        this.colour = '';
+        this.wheels = '';
       }
     }
   },

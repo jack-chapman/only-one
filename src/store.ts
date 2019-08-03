@@ -49,6 +49,8 @@ export default new Vuex.Store({
       commit('setShowMenu', true);
     },
     startGame({commit, dispatch}) {
+      commit('setScore', 0);
+      commit('setPossibleScore', 0);
       commit('setGameOver', false);
       commit('setIsPlaying', true);
       commit('setShowMenu', false);
