@@ -7,7 +7,7 @@ import Vue from 'vue'
 export default Vue.extend({
   data() {
     return  {
-      remainingTime: 10,
+      remainingTime: 60,
       identifier: 0
     }
   },
