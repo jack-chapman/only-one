@@ -1,7 +1,7 @@
 <template>
   <div class="list-container">
     <h3>Orders</h3>
-    <transition-group name="list-complete" tag="ul">
+    <transition-group name="list-complete" class="orders-list" tag="ul">
       <li class="order-item list-complete-item" :class="{'first': index === 0}" v-for="(order, index) in ordersArray" :key="order.id">
         <p>Order: {{order.id}}</p>
         <p>For: {{order.name}}</p>
@@ -30,6 +30,7 @@ export default Vue.extend({
 }
 .orders-list {
   list-style: none;
+  padding: 0; 
 }
 
 .order-item {
