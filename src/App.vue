@@ -50,9 +50,7 @@ export default Vue.extend({
     'one-menu': Menu
   },
   created() {
-    this.$store.dispatch('generateNewOrder');
-    this.$store.dispatch('generateNewOrder');
-    this.$store.dispatch('generateNewOrder');
+    this.$store.commit('setShowMenu', true);
   },
   computed: {
     showMenu(): boolean {
@@ -136,7 +134,7 @@ body {
 
 .menu {
   position: absolute;
-  top: 150px;
-  left: 500px;;
+  top: 110px;
+  left: 345px;
 }
 </style>

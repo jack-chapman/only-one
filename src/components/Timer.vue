@@ -7,7 +7,7 @@ import Vue from 'vue'
 export default Vue.extend({
   data() {
     return  {
-      remainingTime: 90,
+      remainingTime: 10,
       identifier: 0
     }
   },
@@ -29,6 +29,7 @@ export default Vue.extend({
   watch: {
     gameInProgress(playing: boolean): void {
       if (playing) {
+        this.remainingTime = 60;
         this.startCounter();
       } else {
         this.stopCounter();

@@ -46,14 +46,20 @@ export default new Vuex.Store({
   actions: {
     endGame({commit}) {
       commit('setGameOver', true);
+      commit('setShowMenu', true);
     },
-    startGame({commit}) {
+    startGame({commit, dispatch}) {
       commit('setGameOver', false);
       commit('setIsPlaying', true);
+      commit('setShowMenu', false);
+      dispatch('generateNewOrder');
+      dispatch('generateNewOrder');
+      dispatch('generateNewOrder');
     },
     resetGame({commit}) {
       commit('setGameOver', false);
       commit('setIsPlaying', false);
+      commit('setOrdersList', []);
     },
     generateNewOrder({commit, state}) {
       const newOrder: Order = createOrder(state.orderIndex);

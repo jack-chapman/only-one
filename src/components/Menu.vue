@@ -1,11 +1,15 @@
 <template>
   <div class="menu-container">
     <h2>Menu</h2>
-    <h3 v-if="gameOver">{{score}}</h3>
-    <div class="buttons">
-      <button @click="startGame">Start!</button>
-      <button @click="instructionsVisible = !instructionsVisible">Instructions</button>
-    </div>
+    <h3 v-if="gameOver">You got {{score}} orders correct!</h3>
+    <p class="instructions" v-if="!gameOver">
+      You've only got 60 seconds to ship as many orders as possible!<br><br>
+      Enter the order details on the right, then click SHIP IT.<br><br>
+      Make sure you get the details exactly right, or you'll cause shipping issues and the customer will be unhappy.<br><br>
+      REMEMBER all of our Unicycles have <em>Only One</em> wheel!
+    </p>
+    <button @click="startGame" v-if="!gameOver">Start!</button>
+    <button @click="resetGame" v-if="gameOver">Play Again!</button>
   </div>
 </template>
 
@@ -17,9 +21,15 @@ export default Vue.extend({
       instructionsVisible: false
     }
   },
+  mounted() {
+
+  },
   methods: {
     startGame(): void {
-
+      this.$store.dispatch('startGame');
+    },
+    resetGame(): void {
+      this.$store.dispatch('resetGame')
     }
   },
   computed: {
@@ -38,5 +48,6 @@ export default Vue.extend({
   border: 1px black solid;
   background: #fff;
   padding: 40px;
+  width: 300px;
 }
 </style>
