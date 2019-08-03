@@ -1,5 +1,5 @@
 <template>
-  <h1 class="title">Only One Wheel!</h1>
+  <h1 class="title">Unicycle Shop!</h1>
 </template>
 
 <script lang="ts">

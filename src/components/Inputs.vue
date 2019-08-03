@@ -1,12 +1,12 @@
 <template>
   <div class="inputs-container">
     <label for="model">Model</label>
-    <input type="text" name="model" id="model" tabindex="1" v-model="model" ref="first-input"/>
+    <input type="text" name="model" id="model" tabindex="1" v-model="model" ref="first-input" class="input"/>
     <label for="colour">Colour</label>
-    <input type="text" name="colour" id="colour" tabindex="2" v-model="colour" />
+    <input type="text" name="colour" id="colour" tabindex="2" v-model="colour" class="input"/>
     <label for="wheels">Number of wheels</label>
-    <input type="text" name="wheels" id="wheels" tabindex="3" v-model="wheels" />
-    <button @click="nextOrder" tabindex="4">SHIP IT</button>
+    <input type="text" name="wheels" id="wheels" tabindex="3" v-model="wheels" class="input"/>
+    <button @click="nextOrder" tabindex="4" class="ship-it">SHIP IT</button>
     <p>Score: {{score}}</p>
   </div>
 </template>
@@ -49,5 +49,16 @@ export default Vue.extend({
   flex-direction: column;
   height: 100%;
   justify-content: flex-start;
+}
+
+.input {
+  margin-bottom: 20px;
+  height: 40px;
+  font-size: 24px;
+}
+
+.ship-it {
+  height: 70px;
+  font-size: 30px;
 }
 </style>
