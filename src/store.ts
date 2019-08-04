@@ -70,18 +70,22 @@ export default new Vuex.Store({
       commit('setOrdersList', list)
     },
     nextOrder({commit, state, getters}, payload: OrderRequest) {
-      commit('setPossibleScore', state.possibleScore + 1);
-      const modelCorrect = payload.model === getters.currentOrder.model;
-      const colourCorrect = payload.colour === getters.currentOrder.colour;
-      const wheelsCorrect = payload.wheels === 'Only One';
-      const orderCorrect = modelCorrect && colourCorrect && wheelsCorrect;
-      if (orderCorrect) {
-        commit('setScore', state.score + 1);
-      }
-      const list = state.ordersList.slice(1);
-      const newOrder: Order = createOrder(state.orderIndex);
-      commit('incrementOrderIndex');
-      commit('setOrdersList', [...list, newOrder]);
+      return new Promise((resolve, reject) => {
+        commit('setPossibleScore', state.possibleScore + 1);
+        const modelCorrect = payload.model === getters.currentOrder.model;
+        const colourCorrect = payload.colour === getters.currentOrder.colour;
+        const wheelsCorrect = payload.wheels === 'Only One';
+        const orderCorrect = modelCorrect && colourCorrect && wheelsCorrect;
+        if (orderCorrect) {
+          commit('setScore', state.score + 1);
+        }
+        const list = state.ordersList.slice(1);
+        const newOrder: Order = createOrder(state.orderIndex);
+        commit('incrementOrderIndex');
+        commit('setOrdersList', [...list, newOrder]);
+        orderCorrect ? resolve(true) : resolve(false);
+      });
+      
     }
   }
 })

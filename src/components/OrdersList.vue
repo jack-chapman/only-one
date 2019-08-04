@@ -39,7 +39,7 @@ export default Vue.extend({
 }
 
 .first {
-  background-color: lightblue;
+  border: 1px black dashed;
 }
 </style>
 

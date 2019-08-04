@@ -62,7 +62,7 @@ export default Vue.extend({
 
 <style>
 * {
-  /* border: 1px yellow solid; */
+  font-family: 'Anonymous Pro', monospace;
 }
 body {
   margin: 0;
@@ -83,6 +83,7 @@ body {
   height: 605px;
   width: 1090px;
   justify-content: space-between;
+  background-image: url('../assets/paper.jpg')
 }
 .modal {
   height: 100%;
@@ -109,19 +110,21 @@ body {
 }
 
 .body-left-container {
-  height: 90%;
+  height: 80%;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .orders-list-container {
   width: 45%;
   height: 100%;
+  border-right: 1px dashed black;
 }
 .order-details-container {
   width: 45%;
   height: 100%;
+  border-right: 1px dashed black;
 }
 
 .timer-container {
@@ -129,7 +132,7 @@ body {
 }
 
 .input-container {
-  height: 90%;
+  height: 80%;
 }
 
 .menu {

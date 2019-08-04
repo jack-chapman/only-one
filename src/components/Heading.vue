@@ -13,5 +13,6 @@ export default Vue.extend({
 .title {
   width: 100%;
   text-align: center;
+  text-decoration: underline;
 }
 </style>

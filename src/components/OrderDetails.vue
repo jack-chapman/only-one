@@ -1,15 +1,5 @@
 <template>
   <div class="order-container">
-    <h3>Customer Details</h3>
-    <div class="key-val">
-      <p class="key">Name</p>
-      <p class="val">{{order.name || 'N/A'}}</p>
-    </div>
-    <div class="key-val">
-      <p class="key">Address</p>
-      <p class="val">{{order.address || 'N/A'}}</p>
-    </div>
-    <hr>
     <h3>Order Details</h3>
     <div class="key-val">
       <p class="key">Model</p>
@@ -22,6 +12,16 @@
     <div class="key-val">
       <p class="key">Number of wheels</p>
       <p class="val">Only One</p>
+    </div>
+    <hr>
+    <h3>Customer Details</h3>
+    <div class="key-val">
+      <p class="key">Name</p>
+      <p class="val">{{order.name || 'N/A'}}</p>
+    </div>
+    <div class="key-val">
+      <p class="key">Address</p>
+      <p class="val">{{order.address || 'N/A'}}</p>
     </div>
   </div>
 </template>
@@ -49,5 +49,10 @@ export default Vue.extend({
     margin-right: 10px;
     font-weight: bold;
   }
+}
+
+hr {
+  border: 1px black dashed;
+  margin-right: 10px;
 }
 </style>
